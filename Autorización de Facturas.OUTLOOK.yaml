@@ -1,0 +1,108 @@
+name: Autorización de Facturas
+description: Plantilla para autorizar facturas de proveedores.
+host: OUTLOOK
+api_set: {}
+script:
+  content: |
+    $("#inData").click(setinData);
+
+    function setinData() {
+      var gasinver1 = $("#sGasto").val();
+      var mail1 = $("#sMail").val();
+      var area1 = $("#sArea").val();
+      var centro1 = $("#sCentro").val();
+      var obser1 = $("#sObs").val();
+      var text =
+        "GASTO / INVERSION: " +
+        gasinver1 +
+        " E-MAIL AUTORIZADOR: " +
+        mail1 +
+        " AREA: " +
+        area1 +
+        " CENTRO: " +
+        centro1 +
+        " OBSERVACIONES: " +
+        obser1;
+
+      Office.context.mailbox.item.setSelectedDataAsync(
+        "**********" +
+          "\n" +
+          "ITEM FACTURAS" +
+          "\t" +
+          "\t" +
+          "DATOS SELECCIONADOS" +
+          "\t" +
+          "\n" +
+          "GASTO / INVERSION: " +
+          "\t" +
+          "\t" +
+          gasinver1 +
+          "\t" +
+          "\t" +
+          "\t" +
+          "\t" +
+          "//" +
+          "\n" +
+          "E-MAIL AUTORIZADOR: " +
+          "\t" +
+          "\t" +
+          mail1 +
+          "\t" +
+          "\t" +
+          "//" +
+          "\n" +
+          "AREA:" +
+          "\t" +
+          "\t" +
+          "\t" +
+          "\t" +
+          area1 +
+          "\t" +
+          "\t" +
+          "\t" +
+          "\t" +
+          "//" +
+          "\n" +
+          "CENTRO:" +
+          "\t" +
+          "\t" +
+          "\t" +
+          centro1 +
+          "\t" +
+          "\t" +
+          "\t" +
+          "//" +
+          "\n" +
+          "OBSERVACIONES: " +
+          "\t" +
+          "\t" +
+          obser1 +
+          "\t" +
+          "\t" +
+          "\t" +
+          "\t" +
+          "//" +
+          "\n" +
+          "**********",
+        {}
+      );
+    }
+  language: typescript
+template:
+  content: "<body>\n\n\t\t<img src=\"https://i.ibb.co/W6HfNZs/logo-cualtis.png\" alt=\"logo-cualtis\"></a>\n\t\t<br>\n\t\t<label>GASTO / INVERSION</label><br>\n\t\t<select type=\"select\" name=\"sGasto\" id=\"sGasto\" >\n    <option>...</option>\n    <option>GASTO</option>\n    <option>INVERSION</option>\n  </select><br>\n\t• Seleccione si es Gasto o Inversión.\n\t\t<br><br>\n\n\t\t<label>E-MAIL AUTORIZADOR</label><br>\n\t\t<input type=\"text\" name=\"sMail\" id=\"sMail\"><br>\n</input>\n\t\t• Indique el correo electrónico del responsable que autoriza y envía la factura.\n\t\t<br><br>\n\n\t\t<label>AREA</label><br>\n\t\t<select type=\"select\" name=\"sArea\" id=\"sArea\" >\n\t    <option>...</option>\n\t    <option>ET</option>\n\t    <option>MT</option>\n\t\t\t<option>FP</option>\n\t\t\t<option>CO</option>\n\t\t\t<option>UM</option>\n\t</select><br>\n\t• Seleccione el área.\n\t\t<br><br>\n\n\t\t<label>CENTRO</label><br>\n\t\t<select type=\"select\" name=\"sCentro\" id=\"sCentro\" >\n\t\t  <option>...</option>\n\t\t  <option>1000COL</option>\n\t\t  <option>ALBACETE</option>\n\t\t\t<option> ALCALA GUADAIRA </option>\n\t\t\t<option> ALCANTARILLA </option>\n\t\t\t<option> ALCAZAR DE SAN JUAN </option>\n\t\t\t<option> ALCOBENDAS </option>\n\t\t\t<option> ALCORCON </option>\n\t\t\t<option> ALICANTE </option>\n\t\t\t<option> ALMERIA </option>\n\t\t\t<option> ARETXABALETA </option>\n\t\t\t<option> ARGANDA </option>\n\t\t\t<option> ARGANDA NAVE </option>\n\t\t\t<option> AVILA </option>\n\t\t\t<option> AVILES </option>\n\t\t\t<option> BADAJOZ </option>\n\t\t\t<option> BARCELONA </option>\n\t\t\t<option> BAZA </option>\n\t\t\t<option> BEASAIN </option>\n\t\t\t<option> BENAVENTE </option>\n\t\t\t<option> BENIDORM </option>\n\t\t\t<option> BILBAO </option>\n\t\t\t<option> BOIRO </option>\n\t\t\t<option> BURGOS </option>\n\t\t\t<option> CACERES </option>\n\t\t\t<option> CÁCERES </option>\n\t\t\t<option> CARAVACA DE LA CRUZ </option>\n\t\t\t<option> CARLET </option>\n\t\t\t<option> CARTAGENA </option>\n\t\t\t<option> CASTELLON </option>\n\t\t\t<option> CEUTA </option>\n\t\t\t<option> CHICLANA DE LA FRONTERA </option>\n\t\t\t<option> CIUDAD REAL </option>\n\t\t\t<option> CORDOBA </option>\n\t\t\t<option> CÓRDOBA </option>\n\t\t\t<option> CORNELLA DE LLOBREGAT </option>\n\t\t\t<option> CUENCA </option>\n\t\t\t<option> CULLEREDO </option>\n\t\t\t<option> DENIA </option>\n\t\t\t<option> DR-CENTRO COMUN </option>\n\t\t\t<option> DR-CENTRO MEDICINA </option>\n\t\t\t<option> DR-CENTRO TECNICA </option>\n\t\t\t<option> DR-CYA COMUN </option>\n\t\t\t<option> DR-CYA MEDICINA </option>\n\t\t\t<option> DR-CYA TECNICA </option>\n\t\t\t<option> DR-CYL COMUN </option>\n\t\t\t<option> DR-CYL MEDICINA </option>\n\t\t\t<option> DR-CYL TECNICA </option>\n\t\t\t<option> DR-ESTE COMUN </option>\n\t\t\t<option> DR-ESTE MEDICINA </option>\n\t\t\t<option> DR-ESTE TECNICA </option>\n\t\t\t<option> DR-GALICIA COMUN </option>\n\t\t\t<option> DR-GALICIA MEDICINA </option>\n\t\t\t<option> DR-GALICIA TECNICA </option>\n\t\t\t<option> DR-NORTE COMUN </option>\n\t\t\t<option> DR-NORTE MEDICINA </option>\n\t\t\t<option> DR-NORTE TECNICA </option>\n\t\t\t<option> DR-SUR COMUN </option>\n\t\t\t<option> DR-SUR MEDICINA </option>\n\t\t\t<option> DR-SUR TECNICA </option>\n\t\t\t<option> DT-CENTRO FPRMACIÓN </option>\n\t\t\t<option> DT-CYA FPRMACIÓN </option>\n\t\t\t<option> DT-CYL FPRMACIÓN </option>\n\t\t\t<option> DT-ESTE FPRMACIÓN </option>\n\t\t\t<option> DT-GALICIA FPRMACIÓN </option>\n\t\t\t<option> DT-NORTE FPRMACIÓN </option>\n\t\t\t<option> DT-SUR FPRMACIÓN </option>\n\t\t\t<option> EIBAR </option>\n\t\t\t<option> ELCHE </option>\n\t\t\t<option> ESPINARDO </option>\n\t\t\t<option> ESTEPONA </option>\n\t\t\t<option> FERROL </option>\n\t\t\t<option> GALDAKAO </option>\n\t\t\t<option> GIJON </option>\n\t\t\t<option> GIRONA </option>\n\t\t\t<option> GRANADA </option>\n\t\t\t<option> GRANOLLERS </option>\n\t\t\t<option> GUADALAJARA </option>\n\t\t\t<option> HUELVA </option>\n\t\t\t<option> ILLESCAS </option>\n\t\t\t<option> IRUN </option>\n\t\t\t<option> JAEN </option>\n\t\t\t<option> LA CORUÑA </option>\n\t\t\t<option> LAS PALMAS </option>\n\t\t\t<option> LEGANES </option>\n\t\t\t<option> LEON </option>\n\t\t\t<option> LEON SPI </option>\n\t\t\t<option> LOGROÑO </option>\n\t\t\t<option> LORCA </option>\n\t\t\t<option> LUGO </option>\n\t\t\t<option> LUGO MUGATRA </option>\n\t\t\t<option> MADRID </option>\n\t\t\t<option> MALAGA </option>\n\t\t\t<option> MELILLA </option>\n\t\t\t<option> MERES </option>\n\t\t\t<option> MURCIA </option>\n\t\t\t<option> NAVIA </option>\n\t\t\t<option> ORENSE </option>\n\t\t\t<option> OVIEDO </option>\n\t\t\t<option> PALENCIA </option>\n\t\t\t<option> PALMA DE MALLORCA </option>\n\t\t\t<option> PAMPLONA </option>\n\t\t\t<option> PATERNA </option>\n\t\t\t<option> PETRER </option>\n\t\t\t<option> PONTEVEDRA </option>\n\t\t\t<option> PORRIÑO </option>\n\t\t\t<option> PUENTE GENIL </option>\n\t\t\t<option> PUERTO DE SANTA MARIA </option>\n\t\t\t<option> SALAMANCA </option>\n\t\t\t<option> SALAMANCA NAVE </option>\n\t\t\t<option> SAN GINÉS </option>\n\t\t\t<option> SAN JAVIER </option>\n\t\t\t<option> SAN SEBASTIAN </option>\n\t\t\t<option> SANTANDER </option>\n\t\t\t<option> SANTIAGO DE COMPOSTELA </option>\n\t\t\t<option> SEGOVIA </option>\n\t\t\t<option> SEVILLA </option>\n\t\t\t<option> SEVILLA NAVE </option>\n\t\t\t<option> SORIA </option>\n\t\t\t<option> SSCC ADM. </option>\n\t\t\t<option> SSCC COMP. </option>\n\t\t\t<option> SSCC FPRM.PRÁCTICA </option>\n\t\t\t<option> SSCC MED. </option>\n\t\t\t<option> SSCC PR.TEC. </option>\n\t\t\t<option> TALAVERA </option>\n\t\t\t<option> TARRAGONA </option>\n\t\t\t<option> TENERIFE </option>\n\t\t\t<option> TINEO </option>\n\t\t\t<option> TOLEDO </option>\n\t\t\t<option> TORREJON </option>\n\t\t\t<option> UM 1091CMV </option>\n\t\t\t<option> UM 1163CCS </option>\n\t\t\t<option> UM 1276DVR </option>\n\t\t\t<option> UM 1844CNP </option>\n\t\t\t<option> UM 1847CNP </option>\n\t\t\t<option> UM 1850CNP </option>\n\t\t\t<option> UM 1854CNP </option>\n\t\t\t<option> UM 2493CBZ </option>\n\t\t\t<option> UM 3750FPZ </option>\n\t\t\t<option> UM 3885CGF </option>\n\t\t\t<option> UM 3893DWV </option>\n\t\t\t<option> UM 4180BZP </option>\n\t\t\t<option> UM 4296CVG </option>\n\t\t\t<option> UM 4300CVG </option>\n\t\t\t<option> UM 4310CVG </option>\n\t\t\t<option> UM 4316CVG </option>\n\t\t\t<option> UM 4324CVG </option>\n\t\t\t<option> UM 4328CVG </option>\n\t\t\t<option> UM 4334CVG </option>\n\t\t\t<option> UM 4356CVG </option>\n\t\t\t<option> UM 4367CVG </option>\n\t\t\t<option> UM 4372CVG </option>\n\t\t\t<option> UM 4374CVG </option>\n\t\t\t<option> UM 4380CVG </option>\n\t\t\t<option> UM 4383-CVG </option>\n\t\t\t<option> UM 4389CVG </option>\n\t\t\t<option> UM 4397CVG </option>\n\t\t\t<option> UM 4403CVG </option>\n\t\t\t<option> UM 6083DPT </option>\n\t\t\t<option> UM 6591BFB </option>\n\t\t\t<option> UM 6763DDR </option>\n\t\t\t<option> UM 6806DDR </option>\n\t\t\t<option> UM 6814DDR </option>\n\t\t\t<option> UM 6823DDR </option>\n\t\t\t<option> UM 6827DDR </option>\n\t\t\t<option> UM 6832DDR </option>\n\t\t\t<option> UM 6839DDR </option>\n\t\t\t<option> UM 6844-DDR </option>\n\t\t\t<option> UM 6850DDR </option>\n\t\t\t<option> UM 6856DDR </option>\n\t\t\t<option> UM 6864BWL </option>\n\t\t\t<option> UM 7472 FCM </option>\n\t\t\t<option> UM 7879KCZ </option>\n\t\t\t<option> UM 7895CCM </option>\n\t\t\t<option> UM 7898CCM </option>\n\t\t\t<option> UM 7916KZC </option>\n\t\t\t<option> UM 7983BDW </option>\n\t\t\t<option> UM 8137 FGN </option>\n\t\t\t<option> UM 8498CFJ </option>\n\t\t\t<option> UM 8500CFJ </option>\n\t\t\t<option> UM 8502CFJ </option>\n\t\t\t<option> UM 8503CFJ </option>\n\t\t\t<option> UM 8505CFJ </option>\n\t\t\t<option> UM 8507CFJ </option>\n\t\t\t<option> UM 8640CLG </option>\n\t\t\t<option> UM 8741FKD </option>\n\t\t\t<option> UM 9269CFH </option>\n\t\t\t<option> UM 9272CFH </option>\n\t\t\t<option> UM 9274CFH </option>\n\t\t\t<option> UM 9278CFH </option>\n\t\t\t<option> UM 9280CFH </option>\n\t\t\t<option> UM 9281CFH </option>\n\t\t\t<option> UM 9282CFH </option>\n\t\t\t<option> UM 9283CFH </option>\n\t\t\t<option> UM 9284CFH </option>\n\t\t\t<option> UM 9286CFH </option>\n\t\t\t<option> UM 9287CFH </option>\n\t\t\t<option> UM 9288CFH </option>\n\t\t\t<option> UM 9289CFH </option>\n\t\t\t<option> UM 9636BHJ </option>\n\t\t\t<option> UM 9637BHJ </option>\n\t\t\t<option> UM 9638BHJ </option>\n\t\t\t<option> UM 9639BHJ </option>\n\t\t\t<option> UM A0899CX </option>\n\t\t\t<option> UM A1560BJ </option>\n\t\t\t<option> UM A6903CF </option>\n\t\t\t<option> UM M2019LN </option>\n\t\t\t<option> UM M20522R </option>\n\t\t\t<option> UM M4802ZP </option>\n\t\t\t<option> UM M855NX </option>\n\t\t\t<option> UM M8828OU </option>\n\t\t\t<option> VALENCIA </option>\n\t\t\t<option> VALLADOLID </option>\n\t\t\t<option> VARIOS ADMON. </option>\n\t\t\t<option> VARIOS COMPLETO </option>\n\t\t\t<option> VARIOS MEDICINA </option>\n\t\t\t<option> VARIOS PREV. TECNICA </option>\n\t\t\t<option> VELEZ </option>\n\t\t\t<option> VIGO </option>\n\t\t\t<option> VITORIA </option>\n\t\t\t<option> ZAMORA </option>\n\t\t\t<option> ZARAGOZA </option>\n\t\t\t<option> ZARATAN </option>\n\t</select><br>\n\t• Seleccione el Centro correspondiente\n\t\t<br><br>\n\n\t\t<label>OBSERVACIONES:</label><br>\n\t\t<input type=\"text\" name=\"sObs\" id=\"sObs\"></br> • Espacio para comentar.</input>\n\t\t<br><br><br>\n\n\t\t<button id=\"inData\">\n\t<span>Insertar</span>\n\t</button>\n\n</body>"
+  language: html
+style:
+  content: "body{\r\nwidth: 250px;\r\nheight: 500px;\r\npadding-left: 15px;\r\npadding-right: 50px;\r\ntext-align: inherit;\r\nposition: relative;\r\n}\r\n\r\nimg{\r\n  width: 220px;\r\n  height: 50px;\r\n  padding-bottom: 20px;\r\n  padding-top: 20px;\r\n}\r\n\r\nlabel{\r\n  color: grey;\r\n  font-family: roboto;\r\n  font-size: 20 px;\r\n}\r\n\r\nbutton{\r\n  font-family: roboto;\r\n  \r\n}\r\n\r\n"
+  language: css
+libraries: |-
+  https://appsforoffice.microsoft.com/lib/1/hosted/office.js
+  @types/office-js
+
+  office-ui-fabric-js@1.4.0/dist/css/fabric.min.css
+  office-ui-fabric-js@1.4.0/dist/css/fabric.components.min.css
+
+  core-js@2.4.1/client/core.min.js
+  @types/core-js
+
+  jquery@3.1.1
+  @types/jquery@3.3.1
